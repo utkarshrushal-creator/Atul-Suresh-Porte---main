@@ -1,11 +1,13 @@
 import { Leaf, Droplets, Sun, Brain, ShieldCheck, Activity, ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { SERVICES, IMAGES } from "./data";
 import { Reveal, SectionHeading } from "./Reveal";
-import { goTo } from "./scroll";
 
 const ICONS = { Leaf, Droplets, Sun, Brain, ShieldCheck, Activity };
 
-export const Services = () => (
+export const Services = () => {
+  const navigate = useNavigate();
+  return (
   <section id="services" data-testid="services-section" className="bg-white py-20 sm:py-28">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeading
@@ -22,7 +24,7 @@ export const Services = () => (
             <Reveal key={s.title} delay={(i % 3) * 0.08} className={featured ? "lg:row-span-2" : ""}>
               <button
                 data-testid={`service-card-${i}`}
-                onClick={() => goTo("#book")}
+                onClick={() => navigate("/contact")}
                 className={`group relative h-full w-full text-left rounded-3xl border border-sage overflow-hidden shadow-soft hover:shadow-lift hover:-translate-y-1.5 transition-[box-shadow,transform] duration-500 ${
                   featured ? "bg-forest text-cream min-h-[320px] lg:min-h-full" : "bg-cream p-7"
                 }`}
@@ -67,5 +69,6 @@ export const Services = () => (
         </p>
       </Reveal>
     </div>
-  </section>
-);
+    </section>
+  );
+};

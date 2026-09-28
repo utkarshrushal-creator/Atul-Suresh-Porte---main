@@ -13,3 +13,11 @@ export const goTo = (hash) => {
     el.scrollIntoView({ behavior: "smooth" });
   }
 };
+
+export const scrollToTop = () => {
+  if (lenisInstance) {
+    lenisInstance.scrollTo(0, { immediate: true });
+  } else {
+    window.scrollTo(0, 0);
+  }
+};

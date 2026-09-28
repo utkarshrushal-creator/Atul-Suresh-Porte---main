@@ -1,10 +1,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Phone, MessageCircle, CalendarCheck, Award } from "lucide-react";
 import { CLINIC, IMAGES } from "./data";
-import { goTo } from "./scroll";
 import { MaskLine } from "./Reveal";
 
 export const Hero = () => {
+  const navigate = useNavigate();
   const { scrollY } = useScroll();
   const imgY = useTransform(scrollY, [0, 700], [0, 70]);
   const bgY = useTransform(scrollY, [0, 700], [0, -40]);
@@ -66,7 +67,7 @@ export const Hero = () => {
           >
             <button
               data-testid="hero-book-btn"
-              onClick={() => goTo("#book")}
+              onClick={() => navigate("/contact")}
               className="inline-flex items-center gap-2 rounded-full bg-forest px-7 py-3.5 text-sm font-semibold text-cream shadow-lift hover:bg-forest-deep hover:-translate-y-0.5 transition-[background-color,transform] duration-300"
             >
               <CalendarCheck className="h-4 w-4" /> Book Consultation

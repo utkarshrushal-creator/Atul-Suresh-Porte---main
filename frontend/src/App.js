@@ -1,26 +1,30 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import "@/App.css";
-import { setLenisInstance } from "./site/scroll";
+import { setLenisInstance, scrollToTop } from "./site/scroll";
 import { Header } from "./site/Header";
-import { Hero } from "./site/Hero";
-import { Marquee } from "./site/Marquee";
-import { TrustBar } from "./site/TrustBar";
-import { About } from "./site/About";
-import { Doctor } from "./site/Doctor";
-import { Services } from "./site/Services";
-import { Conditions } from "./site/Conditions";
-import { ChildrenCare } from "./site/ChildrenCare";
-import { Pharmacy } from "./site/Pharmacy";
-import { Process } from "./site/Process";
-import { Testimonials } from "./site/Testimonials";
-import { DoctorQuote } from "./site/DoctorQuote";
-import { Booking } from "./site/Booking";
-import { Contact } from "./site/Contact";
-import { QRSection } from "./site/QRSection";
 import { Footer } from "./site/Footer";
 import { Floating } from "./site/Floating";
+import {
+  HomePage,
+  DoctorPage,
+  ServicesPage,
+  ConditionsPage,
+  ChildrenPage,
+  PharmacyPage,
+  ReviewsPage,
+  ContactPage,
+} from "./site/pages";
+
+const ScrollRestoration = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    scrollToTop();
+  }, [pathname]);
+  return null;
+};
 
 function App() {
   useEffect(() => {
@@ -40,29 +44,26 @@ function App() {
   }, []);
 
   return (
-    <div className="App font-body bg-cream text-ink pb-[64px] md:pb-0">
-      <Header />
-      <main>
-        <Hero />
-        <Marquee />
-        <TrustBar />
-        <About />
-        <Doctor />
-        <Services />
-        <Conditions />
-        <ChildrenCare />
-        <Pharmacy />
-        <Process />
-        <Testimonials />
-        <DoctorQuote />
-        <Booking />
-        <Contact />
-        <QRSection />
-      </main>
-      <Footer />
-      <Floating />
-      <Toaster position="top-center" richColors />
-    </div>
+    <BrowserRouter>
+      <div className="App font-body bg-cream text-ink pb-[64px] md:pb-0">
+        <ScrollRestoration />
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about-doctor" element={<DoctorPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/conditions" element={<ConditionsPage />} />
+          <Route path="/children" element={<ChildrenPage />} />
+          <Route path="/pharmacy" element={<PharmacyPage />} />
+          <Route path="/reviews" element={<ReviewsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+        <Footer />
+        <Floating />
+        <Toaster position="top-center" richColors />
+      </div>
+    </BrowserRouter>
   );
 }
 

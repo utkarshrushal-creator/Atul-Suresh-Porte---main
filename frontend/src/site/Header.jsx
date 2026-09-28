@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { CLINIC, NAV_LINKS } from "./data";
-import { goTo } from "./scroll";
 import { LogoMark } from "./LogoMark";
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -15,27 +17,24 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNav = (e, href) => {
-    e.preventDefault();
-    setOpen(false);
-    goTo(href);
-  };
+  useEffect(() => setOpen(false), [pathname]);
+
+  const isActive = (href) => pathname === href;
+  const linkCls = (href) =>
+    `text-sm transition-colors duration-300 ${
+      isActive(href) ? "font-bold text-forest" : "font-medium text-ink/75 hover:text-forest"
+    }`;
 
   return (
     <header
       data-testid="site-header"
       className={`fixed top-0 inset-x-0 z-50 transition-[background-color,box-shadow] duration-500 ${
-        scrolled ? "bg-cream/90 backdrop-blur-md shadow-soft" : "bg-transparent"
+        scrolled || pathname !== "/" ? "bg-cream/90 backdrop-blur-md shadow-soft" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[76px]">
-          <a
-            href="#home"
-            data-testid="nav-logo-link"
-            onClick={(e) => handleNav(e, "#home")}
-            className="flex items-center gap-3 group"
-          >
+          <Link to="/" data-testid="nav-logo-link" className="flex items-center gap-3 group">
             <LogoMark className="h-11 w-11 transition-transform duration-500 group-hover:rotate-3" />
             <span className="leading-tight">
               <span className="block font-heading font-bold text-forest text-sm sm:text-base tracking-tight">
@@ -45,19 +44,18 @@ export const Header = () => {
                 PHARMACLINIC
               </span>
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden xl:flex items-center gap-7" aria-label="Primary">
             {NAV_LINKS.map((l) => (
-              <a
+              <Link
                 key={l.href}
-                href={l.href}
+                to={l.href}
                 data-testid={`nav-link-${l.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
-                onClick={(e) => handleNav(e, l.href)}
-                className="text-sm font-medium text-ink/75 hover:text-forest transition-colors duration-300"
+                className={linkCls(l.href)}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -73,7 +71,7 @@ export const Header = () => {
             </a>
             <button
               data-testid="header-book-btn"
-              onClick={() => goTo("#book")}
+              onClick={() => navigate("/contact")}
               className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-2.5 text-sm font-semibold text-cream hover:bg-forest-deep transition-colors duration-300 shadow-soft"
             >
               Book Consultation
@@ -103,15 +101,16 @@ export const Header = () => {
           >
             <div className="px-6 py-6 flex flex-col gap-1">
               {NAV_LINKS.map((l) => (
-                <a
+                <Link
                   key={l.href}
-                  href={l.href}
+                  to={l.href}
                   data-testid={`mobile-nav-link-${l.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
-                  onClick={(e) => handleNav(e, l.href)}
-                  className="py-3 text-base font-medium text-ink/80 border-b border-sage/70 last:border-0"
+                  className={`py-3 text-base border-b border-sage/70 last:border-0 ${
+                    isActive(l.href) ? "font-bold text-forest" : "font-medium text-ink/80"
+                  }`}
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
               <div className="flex gap-3 pt-5">
                 <a
@@ -123,7 +122,7 @@ export const Header = () => {
                 </a>
                 <button
                   data-testid="mobile-book-btn"
-                  onClick={() => { setOpen(false); goTo("#book"); }}
+                  onClick={() => { setOpen(false); navigate("/contact"); }}
                   className="flex-1 rounded-full bg-forest px-4 py-3 text-sm font-semibold text-cream"
                 >
                   Book Consultation

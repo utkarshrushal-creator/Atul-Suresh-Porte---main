@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { Phone, MessageCircle, CalendarCheck } from "lucide-react";
 import { CLINIC } from "./data";
-import { goTo } from "./scroll";
 
-export const Floating = () => (
+export const Floating = () => {
+  const navigate = useNavigate();
+  return (
   <>
     <div
       data-testid="mobile-action-bar"
@@ -30,7 +32,7 @@ export const Floating = () => (
         </a>
         <button
           data-testid="floating-book-btn"
-          onClick={() => goTo("#book")}
+          onClick={() => navigate("/contact")}
           className="flex flex-col items-center gap-1 py-3 text-cream active:bg-white/10 transition-colors duration-200"
         >
           <CalendarCheck className="h-5 w-5" />
@@ -49,5 +51,6 @@ export const Floating = () => (
     >
       <MessageCircle className="h-6 w-6" />
     </a>
-  </>
-);
+    </>
+  );
+};

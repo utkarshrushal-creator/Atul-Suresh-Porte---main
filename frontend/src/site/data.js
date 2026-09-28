@@ -23,14 +23,14 @@ export const IMAGES = {
 };
 
 export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About Doctor", href: "#doctor" },
-  { label: "Services", href: "#services" },
-  { label: "Conditions We Consult", href: "#conditions" },
-  { label: "Children's Care", href: "#children" },
-  { label: "Pharmacy", href: "#pharmacy" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About Doctor", href: "/about-doctor" },
+  { label: "Services", href: "/services" },
+  { label: "Conditions We Consult", href: "/conditions" },
+  { label: "Children's Care", href: "/children" },
+  { label: "Pharmacy", href: "/pharmacy" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const CONSULTATION_TYPES = [
