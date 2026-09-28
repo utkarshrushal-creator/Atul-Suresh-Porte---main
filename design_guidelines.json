@@ -1,0 +1,61 @@
+{
+  "project_name": "SHREE SANT GAJANAN PHARMACLINIC — Clinic + Pharmacy",
+  "archetype": "ORGANIC & EARTHY / MEDICAL HOLISTIC",
+  "theme": "Light mode default with rich medical forest greens, soft sage, warm alabaster, and subtle warm gold accents",
+  "typography": {
+    "heading_font": "Outfit, sans-serif",
+    "body_font": "Plus Jakarta Sans, sans-serif",
+    "accent_font": "Playfair Display, serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-emerald-950",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-emerald-900",
+      "h3": "text-xl sm:text-2xl font-semibold text-emerald-800",
+      "h4": "text-lg sm:text-xl font-medium text-emerald-900",
+      "body": "text-base text-slate-700 leading-relaxed",
+      "caption": "text-xs sm:text-sm text-slate-500 uppercase tracking-widest font-semibold"
+    }
+  },
+  "colors": {
+    "primary": "#0f392b",
+    "primary_hover": "#0a261d",
+    "secondary": "#2d6a4f",
+    "accent_gold": "#d4af37",
+    "accent_teal": "#1b93a4",
+    "bg_primary": "#faf9f6",
+    "bg_card": "#ffffff",
+    "bg_sage": "#e8f2ea",
+    "border": "#d1e2d4",
+    "text_dark": "#0d1f18",
+    "text_muted": "#4b6358"
+  },
+  "visual_enhancers": {
+    "border_radius": "rounded-2xl",
+    "glassmorphism": "backdrop-blur-md bg-white/85 border border-emerald-100 shadow-sm",
+    "shadows": "shadow-[0_10px_30px_-10px_rgba(15,57,43,0.08)] hover:shadow-[0_20px_40px_-15px_rgba(15,57,43,0.15)]",
+    "gradient_accent": "bg-gradient-to-r from-emerald-900 via-emerald-800 to-teal-900"
+  },
+  "image_urls": {
+    "doctor_portrait": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "ayurveda_herbs": "https://images.unsplash.com/photo-1514733670139-4d87a1941d55?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "naturopathy_spa": "https://images.unsplash.com/photo-1758525732480-8df43412b54c?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "children_care": "https://images.unsplash.com/photo-1621960882288-0bc66f321a5d?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "clinic_consultation": "https://images.unsplash.com/photo-1758691463582-11aea602cd4a?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "component_path": "/app/frontend/src/App.js",
+  "instructions_to_main_agent": [
+    "Ensure all interactive elements have explicit data-testid attributes (kebab-case).",
+    "Implement line-by-line masked headline reveal animation using framer-motion.",
+    "Ensure complete medical responsibility with required disclaimers for chronic, neurological, and mental conditions.",
+    "Form submit must integrate with backend POST /api/consultation and show sonner toast notification.",
+    "Include phone, WhatsApp, SMS, and Email click-to-action triggers with actual doctor details (+91 90213 32788, sinuatul@gmail.com).",
+    "Embed address-based map frame for Zenda Chouk, Rajiv Nagar, Wanadongri, Hingna Road, Nagpur, Maharashtra, India.",
+    "Provide phonepe UPI payment QR code display in Scan & Connect section."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Never use dark full-screen gradients.",
+    "Do not use generic Inter font for headers.",
+    "Ensure mobile bottom action bar is fixed and visible on small screens.",
+    "Test all form fields for proper state handling and validation."
+  ]
+}
