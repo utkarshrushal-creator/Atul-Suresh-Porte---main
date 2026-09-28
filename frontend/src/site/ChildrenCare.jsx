@@ -81,8 +81,8 @@ export const ChildrenCare = () => (
         <Reveal>
           <div className="rounded-3xl overflow-hidden shadow-lift">
             <img
-              src={IMAGES.community}
-              alt="Inclusive community support circle — family guidance at Shree Sant Gajanan Pharmaclinic"
+              src={IMAGES.thankYou}
+              alt="Children supported by Shree Sant Gajanan Pharmaclinic holding a thank-you message"
               data-testid="children-community-image"
               className="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-[1.4s] ease-out"
             />

@@ -19,7 +19,6 @@ export const IMAGES = {
   thankYou: "https://customer-assets-7cd3h4nn.emergentagent.net/job_5495b340-9d5d-40b8-8c6c-97e4ee9f33cc/artifacts/xs8kugo4_IMG-20260928-WA0017.jpg",
   qr: "https://customer-assets-7cd3h4nn.emergentagent.net/job_5495b340-9d5d-40b8-8c6c-97e4ee9f33cc/artifacts/xne544pr_IMG-20260928-WA0016.jpg",
   herbs: "https://images.unsplash.com/photo-1514733670139-4d87a1941d55?crop=entropy&cs=srgb&fm=jpg&q=85",
-  clinic: "https://images.unsplash.com/photo-1758691463582-11aea602cd4a?crop=entropy&cs=srgb&fm=jpg&q=85",
   naturopathy: "https://images.unsplash.com/photo-1758525732480-8df43412b54c?crop=entropy&cs=srgb&fm=jpg&q=85",
 };
 

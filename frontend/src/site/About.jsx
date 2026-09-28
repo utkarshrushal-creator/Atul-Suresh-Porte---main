@@ -18,8 +18,8 @@ export const About = () => (
         <Reveal>
           <div className="rounded-[28px] overflow-hidden shadow-lift">
             <img
-              src={IMAGES.clinic}
-              alt="Consultation at Shree Sant Gajanan Pharmaclinic, Wanadongri"
+              src={IMAGES.community}
+              alt="Families and community supported by Shree Sant Gajanan Pharmaclinic, Wanadongri"
               data-testid="about-clinic-image"
               className="w-full h-[380px] sm:h-[460px] object-cover hover:scale-105 transition-transform duration-[1.4s] ease-out"
             />
