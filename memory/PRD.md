@@ -32,3 +32,9 @@ Premium, modern, trustworthy, mobile-first medical website for SHREE SANT GAJANA
 - P0: none blocking
 - P1: Admin view of consultation requests (auth-gated), Google Business Profile link, real clinic interior photos
 - P2: Marathi/Hindi language toggle, online payment for consultations, blog/health-tips for SEO
+
+## Standalone static version (2026-10-06)
+- `/app/index.html` (project root) — complete single-file static website (Tailwind CDN, Google Fonts, Lucide CDN, vanilla JS). No React/backend needed; deployable to GitHub Pages/Netlify/any static host.
+- Same file also at `/app/frontend/public/standalone.html` (preview at <preview-url>/standalone.html).
+- Booking form opens WhatsApp with pre-filled request (no database). All sections, animations (IntersectionObserver reveals, CSS hero mask reveal, marquee), images, map, QR, floating bars included.
+- `frontend/public/index.html` intentionally NOT overwritten — it is the React app shell.
